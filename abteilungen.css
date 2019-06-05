@@ -1,0 +1,404 @@
+
+@charset "UTF-8";
+
+
+body {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+ 
+background:url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_wall.png);
+}
+
+html {
+  height: 100%;
+  
+}
+
+h1 {
+  text-align: center;
+  color: #CACACA;
+}
+
+.container-hamburger {
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #1B555D;
+}
+*navigation*/
+.main-nav ul  {
+    background:black;
+    width:100%;
+}
+
+.main-nav ul li{
+     display:inline-block;
+     text-align: center;
+     margin-left:25px;
+     padding: 5px;
+
+
+}
+.main-nav ul li a{
+  color:white;
+  text-decoration: none;
+ 
+}
+
+
+.main-nav ul {
+     float:center;
+     background: #3A3A3A;
+     text-align:right;
+     height:40px;
+
+}
+
+
+
+
+
+
+/*----HAMBURGER SIDE----*/
+
+.hamburger {
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 60px;
+  padding: 16px 16px 10px 16px;
+  cursor: pointer;
+  background-color: #3A3A3A;
+  border-radius: 0 4px 4px 0;
+  transition: 0.5s ease left;
+  border-bottom: 1px solid #333;
+  border-left: 1px solid #333;
+  z-index: 2;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+}
+
+.hamburger:hover span {
+  background-color:royalblue;
+}
+
+.hamburger-active .hamburger {
+  left: 240px;
+}
+
+.hamburger-active span.hamurger-second {
+  opacity: 0;
+}
+
+.hamburger-active span.hamurger-first {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger-active span.hamurger-third {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.hamburger span {
+  display: block;
+  background-color:yellow;
+  width: 100%;
+  border-radius: 2px;
+  height: 4px;
+  margin-bottom: 6px;
+  transition: 0.8s ease all;
+}
+
+.hamburger-menu {
+  box-sizing: border-box;
+  color: #CACACA;
+  background-color: #3A3A3A;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  top: 0;
+  width: 300px;
+  overflow: auto;
+  transition: 0.5s ease left;
+  z-index: 1;
+}
+
+.hamburger-active .hamburger-menu {
+  left: 0;
+}
+
+.hamburger-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hamburger-menu .main-links li a {
+  display: block;
+  color: #CACACA;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  letter-spacing: 4px;
+  font-weight: bold;
+  opacity: 0;
+  transition: 0.5s ease all;
+  transition-delay: inherit;
+  transform: translateY(20px);
+  position: relative;
+  z-index: 2;
+}
+
+.hamburger-menu
+ .main-links li a:after {
+  background-color: #FFF;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  content: "";
+  z-index: 1;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.hamburger-menu 
+.main-links li a:hover:after {
+  opacity: .05;
+  height: 100%;
+  border-radius: 0;
+}
+
+.hamburger-menu 
+.main-links li a:hover {
+  color: #FFF;
+}
+
+.hamburger-active 
+.main-links li a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hamburger-menu 
+.secondary-links {
+  text-align: center;
+  color: #CACACA;
+  font-size: 12px;
+  padding: 10px 0;
+  transition: all 0.5s ease;
+  transform: translateX(-60px);
+  opacity: 0;
+}
+
+.hamburger-active 
+.secondary-links {
+  transform: translateX(0);
+  opacity: 1;
+  transition-delay: 0.6s;
+}
+
+.hamburger-menu .secondary-links a,
+.hamburger-menu .secondary-links p {
+  display: inline-block;
+  padding: 10px 3px;
+  color: #CACACA;
+  margin: 2px;
+  transition: all 0.5s ease;
+}
+
+.hamburger-menu .secondary-links a:hover {
+  color: #FFF;
+}
+
+
+
+
+#image{
+ height: 50;
+
+
+}
+
+
+table, th, td {
+    border: 33px ;
+  }
+
+#div1{
+    height: 40%;
+   
+}
+#id11{
+  background-color: #3A3A3A;
+  width: 30px;
+}
+.static{
+  position: static;
+  border: 9px solid gray;
+  height:60%;
+   width:90%;
+   margin: 24px;
+   background-color:#BCCDDB;
+   background-image: url("img/logo.png");
+}
+.row{
+  position: static;
+
+  height:6%;
+   width:90%;
+   margin: 24px;
+
+}
+/* Artikel in Box Anzeigen */
+#cart_button
+{
+	margin-top:-100px;
+	margin-left:80px;
+	cursor:pointer;
+	float:right;
+}
+#cart_button img
+{
+	width:60px;
+	height:60px;
+}
+#cart_button input[type="button"]
+{
+	background:none;
+	border:none;
+	background-color:red;
+	border-radius:100%;
+	height:30px;
+	width:30px;
+	margin-top:0px;
+	color:white;
+	font-size:17px;
+	cursor:pointer;
+	position:relative;
+	top:-4px;
+	right:18px;
+}
+#mycart
+{
+	display:none;
+	background:white;
+	width:800px;
+	border:2px solid #000;
+	position:absolute; right:0px; top:90px;
+	z-index:1;
+}
+#mycart .cart_items
+{
+	border-bottom:1px dashed silver;
+	padding:20px;
+	padding-left:10px;
+}
+#mycart .cart_items img
+{
+	width:70px;
+	height:50px;
+	float:left;
+}
+#mycart .cart_items p
+{
+	margin:0px;
+	font-size:17px;
+	color:green;
+}
+
+#item_div{
+	width:86%;
+	margin:60px auto;
+	}
+  .items{
+    padding:20px;
+    background-color:gray;
+    width:260px;
+    height:400px;
+    margin-top:20px;
+    box-shadow:0px 0px 10px 0px #A4A4A4;
+    box-sizing:border-box;
+    float:left;
+    margin:20px;
+    position:relative;
+    transition: all .2s ease-out;
+  }
+.items:hover {
+  transform: scale(1.21);
+}
+.items:hover input[type="button"]
+{
+	display:block;
+}
+.items input[type="button"]
+{
+	display:none;
+	background:none;
+	background-color:#3ADF00;
+	width:200px;
+	height:50px;
+	border:none;
+	font-size:20px;
+	color:white;
+	position:absolute;
+	top:150px;
+	left:20px;
+	cursor:pointer;
+}
+.items img
+{
+	width:100px;
+	height:60px;
+}
+.items p
+{
+	color: green;
+}
+.cap_status{color:#fff; font-size:20px; float:right; margin-right:30px;  }
+.dropbtn {
+    background-color:black;
+    
+   color: white;
+    
+}
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
