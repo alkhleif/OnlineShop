@@ -1,11 +1,13 @@
 <?php 
   session_start(); 
-
   if (!isset($_SESSION['benutzername'])) {
   	$_SESSION['msg'] = "sie müssen sie zuerst einloggen";
   	header('location: login.php');
   }
  
+
+
+
 ?>
 <?php
 include('server_eingaben.php');
@@ -54,7 +56,63 @@ include('server_anzeige.php') ;
      
     </div>
   
+<?php
+//produksdaten per Link/URL parameter übergeben
+$errors = array();
+ if(isset($_GET['kategorie'])|| isset($_GET['name']) || isset($_GET['serenNum'])  || isset($_GET['preis']) || isset($_GET['beschreib']) || isset($_GET['foto']) || isset($_GET['anzahl']))
+ {     
+          // wenn alle value richtig eingegeben sind, füge das prudukt ein
+     if(!empty($_GET["name"]) && !empty($_GET["kategorie"])  && !empty($_GET["serenNum"])  && !empty($_GET["preis"])  && !empty($_GET["beschreib"])  && !empty($_GET["foto"])  && !empty($_GET["anzahl"]))	
+        {	
+          if( $_GET['kategorie'] =="kinder" || $_GET['kategorie'] === 'frauen' || $_GET['kategorie'] === 'man' )
+          { 
+            // überprüfen ob die preis numerisch zahl ist
+             if (is_numeric($_GET['preis'])) 
+             {
+               // überprüfen ob anzahl des Produktes numerisch zahl ist
+              if (is_numeric($_GET['anzahl'])) { 
+                $db = mysqli_connect('localhost', 'root', '', 'Produkt');
+                $query = "INSERT INTO produkt_tabelle (kategorie,name, serenNum,preis, beschreib,foto,anzahl) 
+                VALUES('{$_GET['kategorie']}','{$_GET['name']}', '{$_GET['serenNum']}', '{$_GET['preis']}'','{$_GET['beschreib']}','{$_GET['foto']}','{$_GET['anzahl']}')";
+          mysqli_query($db, $query);
+               }else{
+                array_push($errors, "anzahl des Pruduktes darf nur numerisch zahl sein");
+               }
+               
 
+             }else{
+              array_push($errors, "die preis darf kein zeichen enthalten");
+              
+             }
+
+          }else
+          {
+           
+            array_push($errors, "diese kategorie ist bei uns leidr noch nicht veröffentlicht,
+             sie könne Ihr Prpdukt entweder in frauen, man oder kinder kategorie anzeigen\n "); 
+          }
+             
+       }
+       else {
+        
+
+        if(empty($_GET["name"])){ array_push($errors, "bitte geben sie die die Value >>name"); }
+        if(empty($_GET["kategorie"])) { array_push($errors, "bitte geben sie die die Value >>kategorie"); }
+        if(empty($_GET["serenNum"])) { array_push($errors, "bitte geben sie die die Value >>serenNum"); }
+        if(empty($_GET["preis"])) { array_push($errors, "bitte geben sie die die Value >>preis"); }
+        if(empty($_GET["beschreib"])) { array_push($errors, "bitte geben sie die die Value >>beschreib"); }
+        if(empty($_GET["anzahl"])) { array_push($errors, "bitte geben sie die die Value >>anzahl"); }
+        if(empty($_GET["foto"])) { array_push($errors, "bitte geben sie die die Value >>foto"); }
+
+
+
+   
+        }
+    }
+
+
+
+?>
         
    
         <div style="background-color: #3A3A3A; height:51px ;">
