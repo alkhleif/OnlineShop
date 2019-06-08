@@ -79,7 +79,7 @@ $errors = array();
                 array_push($errors, "anzahl des Pruduktes darf nur numerisch zahl sein");
                }
                
-
+//
              }else{
               array_push($errors, "die preis darf kein zeichen enthalten");
               
