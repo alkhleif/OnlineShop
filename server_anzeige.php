@@ -18,7 +18,7 @@ if (isset($_POST['submit1'])) {
   $sernum = mysqli_real_escape_string($db, $_POST['sernum']);
   $preis = mysqli_real_escape_string($db, $_POST['preis']);
   $anzahl = mysqli_real_escape_string($db, $_POST['anzahl']);
-  $beschreiben = mysqli_real_escape_string($db, $_POST['beschreiben']);
+  $beschreiben = mysqli_real_escape_string($db,htmlentities($_POST['beschreiben']));
   $image_pfand="file/".basename($_FILES['image1']['name']);
   $image=$_FILES['image1']['name'];
   $imagetemp=$_FILES['image1']['tmp_name'];

@@ -212,6 +212,7 @@ include('serverArtikrl.php');
               
               <div class="main-nav">
                   <ul>
+                  <li><a href="produktzufügen.php">Produkt Anzeigen</a></li>
                   <li><a href="mybestellung.php">mybestellungen</a></li>
                     <li><a href="account.php">Konto</a></li>
                     <li><a href="login.php">ausloggen</a></li>

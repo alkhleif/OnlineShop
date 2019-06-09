@@ -6,7 +6,7 @@ $db = mysqli_connect('localhost', 'root', '', 'warenkorb');
 
 
  if(isset($_POST['send'])){
-	$komentare= $_POST['komentare'];
+	$komentare=htmlentities( $_POST['komentare']);
 	$bewertung= $_POST['bewertung'];
 	$Produkt_ID= $_POST['kategorie'];
 	$kunde= $_POST['hidden_kunde'];
