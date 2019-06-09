@@ -1,4 +1,14 @@
 <?php
+
+/*
+hier wird überprüft ob ein produkt schon gekauft und und warenkorb liegt
+außerdem wirde geprüft ob die bestellunsmenge schon im Lager zur verfügung steht.
+
+wenn ein Produkt gekauft wird, wird die menge auf der Lager reduziert
+
+
+
+*/
  $connect = mysqli_connect("localhost", "root", "", "produkt");  
 
  if(isset($_POST["add_to_cart"]))  
@@ -7,16 +17,21 @@
 
   $produktsnummer=$_POST["hidden_serNum"];
   $kaufMenge=$_POST["quantity"];
+
+  // holt produktsmenge vom Lager
  $query = "SELECT anzahl FROM produkt_tabelle WHERE serenNum='$produktsnummer'";  
-                $result = mysqli_query($connect, $query);
+				$result = mysqli_query($connect, $query);
+				// wenn das produkt auf der lager ist und nicht ausverkauft
 				 if(mysqli_num_rows($result) > 0)  
                 {  
                      while($row = mysqli_fetch_array($result))  
                      { 
 				  $lagerQuantity =$row["anzahl"];
+
+				  //ob lagermenge groß als gekaufte menge
 				  if($lagerQuantity >= $kaufMenge)
 				  {
-					  
+					  //abziehen des gekaufte produkt
 					  $lagerQuantity=$lagerQuantity-$kaufMenge;
 					  
                     
